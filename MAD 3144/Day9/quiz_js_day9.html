@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <!-- Compiled and minified CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+   <!-- Compiled and minified JavaScript -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+
+
+    <style type="text/css">
+
+    h1{
+      font-size: :34px;
+    }
+
+    h2{
+      font-size: 20px;
+    }
+
+    </style>
+  </head>
+  <body>
+
+    <h1> Let' start a Quiz </h1>
+
+    <h2> How much you know about me? </h2>
+
+    <button id="btnShowQuiz" class="waves-effect waves-light btn" style=
+    "margin-bottom:20px"> Start Quiz</button>
+
+    <div class="divider"></div>
+
+
+    <div id="quiz">
+      <p id="question"></p><label>
+      <input type="radio" name="answer" class = "with-gap"value="a">
+        <span id="answer1"></span></label>
+        <label>
+      <input type="radio" name="answer" class = "with-gap" value="b">
+        <span id="answer2"></span>
+      </label>
+
+    </div>
+
+    <div class="progress">
+      <div id="progressBar" class="determinate" style="width: 30%"></div>
+  </div>
+
+    <button id="btnNext" class="waves-effect waves-light btn"> Next </button>
+
+    <!-- quiz results go here -->
+    <div id="results"></div>
+
+
+
+    <!--------- JAVASCRIPT CODE  --------->
+
+
+    <script src="quiz.js"></script>
+    <script type="text/javascript">
+
+
+      // tracker variables
+      var curr = 0;
+      var correct = 0;
+      var wrong = 0;
+      var step = 0;
+
+
+
+      function startQuiz() {
+        // show the first question
+
+        document.getElementById("btnShowQuiz").innerHTML = "START QUIZ"; //CHANGE TO START
+        document.getElementById("results").innerHTML = " ";//HIDE RESULT
+        document.getElementById("progressBar").style.width = "0%";
+        showQuestion();
+      }
+
+      function showQuestion() {
+        // 1. get question from question bank
+        var item = questionBank[curr];
+
+        // 2. show question in webpage
+        document.getElementById("question").innerHTML = item["question"];
+
+        // 3. show answer choices in radio buttons
+        document.getElementById("answer1").innerHTML = item["answers"]["a"];
+        document.getElementById("answer2").innerHTML = item["answers"]["b"];
+
+      }
+
+      function nextQuestion() {
+        // 1.  Check if answer is correct?
+
+        // get the radio button the person selected
+        var userAnswer = document.querySelector('input[name="answer"]:checked').value;
+        console.log(userAnswer);
+
+        // check if the person's selection matches the
+        // actual answer
+        var actual = questionBank[curr]["correct"];
+        console.log(actual);
+
+        if (userAnswer == actual) {
+          correct = correct + 1;
+        }
+        else {
+          wrong = wrong + 1;
+        }
+
+
+        // 2.  Check if we should show the next question?
+
+        // increase the counter;
+        curr = curr + 1;
+
+
+        step+=33;
+        document.getElementById("progressBar").style.width = step + "%";
+
+
+        //@LOGIC - check if we should show the next question
+        if (curr == questionBank.length) {
+          // end the quiz & show the score
+
+          // show results
+          document.getElementById("results").innerHTML =
+              "<h2> Score </h2>"
+            + "<p>"
+            + "Correct: " + correct + " <br>"
+            + "Wrong: " + wrong
+            + "</p>"
+
+          // reset counters
+          curr = 0;
+          correct = 0;
+          wrong = 0;
+
+          document.getElementById("btnShowQuiz").innerHTML = "RESTART QUIZ";
+
+
+
+        }
+        else {
+          // show next question
+          showQuestion();
+        }
+      }
+
+      //-- click handlers
+
+      // start quiz button
+      document.getElementById("btnShowQuiz").addEventListener("click", startQuiz);
+
+      // next button
+      var next = document.getElementById("btnNext");
+      next.addEventListener("click", nextQuestion);
+
+
+    </script>
+  </body>
+</html>
