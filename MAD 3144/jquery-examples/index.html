@@ -1,0 +1,57 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <style type="text/css">
+    .banana {
+      display:none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1> Fade effects </h1>
+
+  <h2> Sliding effects </h2>
+  <button id ="btnABC"> MARK AS DONE! </button>
+  <ul id="fruit-list">
+    <li>
+        <p> Watermelon </p>
+      </li>
+    <li> Banana </li>
+    <li> Apple </li>
+  </ul>
+
+
+
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // put your javascript code in here!
+    /*
+    $("#eggplant").fadeOut(3000);
+    $(".banana").fadeOut(3000);
+    $(".banana").fadeIn(3000);
+    */
+    /*
+    // sliding effects
+    $("#fruit-list").slideDown(4000);
+    $("#fruit-list").slideUp(4000);
+*/
+    // click
+    $("#btnABC").click( function() {
+        $("#fruit-list li p").append("<i class='fas fa-check'></i> DONE!");
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>

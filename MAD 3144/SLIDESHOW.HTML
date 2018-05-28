@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.mySlides {display:none;}
+</style>
+<body class="w3-content w3-section" style="width:100%">
+  <img class="mySlides" src="pic1.jpeg" style="width:95%">
+  <img class="mySlides" src="pic2.jpeg" style="width:95%">
+  <img class="mySlides" src="pic3.jpeg" style="width:95%">
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}
+    x[myIndex-1].style.display = "block";
+    setTimeout(carousel, 5000); // Change image every 2 seconds
+}
+</script>
+
+<div id="bottom">
+  <blockquote class="quote" id="shortquote" style="opacity: 1;"><p class="quote-body">
+	<span class="quote-body-text">“Learn from the mistakes of others. You can’t live long enough to make them all yourself.”</span>
+  <i class="icon-angle-right">
+  </i>
+	<span class="quote-source">
+    <span class="quote-source-text">Eleanor Roosevelt</span>
+    <span class="control control-heart">
+      <img src="img/icon-heart-empty.svg" class="icon icon-heart-empty">
+      <img src="img/icon-heart.svg" class="icon icon-heart">
+    </span>
+    <span class="control control-refresh" style="display: none;">
+      <img src="img/icon-refresh.svg" class="icon icon-refresh">
+  </span>
+  <span data-url="https://twitter.com/intent/tweet?text=%22Learn+from+the+mistakes+of+others.+You+can%E2%80%99t+live+long+enough+to+make+them+all+yourself.%22+%E2%80%94Eleanor+Roosevelt&amp;via=momentumdash&amp;related=momentumdash,levibucsis,jaywaterman" class="control control-twitter"><i class="icon icon-twitter"></i></span></span>
+</p>
+</blockquote>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Focus App </title>
+<style type="text/css">
+#background {
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+}
+background-image: url(https://images.unsplash.com/photo-1509070016581-915335454d19?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e1315ac6ca5cc07e38a83dbacef90dce&auto=format&fit=crop&w=1500&q=80jpg);
+}
+
+#background li {
+    opacity: 0;
+}
+#background, #background li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+#background, #background li {
+    background-color: transparent;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.fadein {
+    -webkit-animation: fadein .5s ease-out 0s forwards;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+#focuses .prompt h3 {
+    font-weight: 300;
+}
+#focuses .focus p, #focuses h3, #focuses ol {
+    padding: 0;
+    margin: 0;
+}
+h3 {
+    display: block;
+    font-size: 1.17em;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+  <div class="prompt" style="display: block;">
+    <h3>What is your main focus for today?</h3>
+  <input type="text">
+  </div>
+  </div>
+  <div class="background-overlay show"></div>
+  <ul id="background" class="background"><li class="fadein" style="background-image: url(&quot;https://images.unsplash.com/photo-1509070016581-915335454d19?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e1315ac6ca5cc07e38a83dbacef90dce&auto=format&fit=crop&w=1500&q=80.jpg&quot;);">
+  </li>
+</ul>
+<div id="divID">
+<script type="text/javascript">
+var imgCount = 3; var dir = 'Images/';
+var randomCount = Math.round(Math.random() * (imgCount - 1)) + 1;
+ var images = new Array images[1] = "pic1.jpeg", images[2] = "pic2.jpeg", images[3] = "pic3.jpeg", document.getElementById("divID").style.backgroundImage = "url(" + dir + images[randomCount] + ")";
+ </script>
+ </div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<head>
+
+</head>
+<body>
+  <h1> Show Students </h1>
+
+  <div id="info"> </div>
+
+  <a href="ls.html"> Go Back </a>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+  //1. LOGIC - get the stuff out of the databse
+  var name = localStorage.getItem("name");
+  var id = localStorage.getItem("id");
+  var program = localStorage.getItem("program");
+
+  //2. UI BOBAGEM - put the stuff into the webpage
+  $("#info").append(
+       "<p> Student Name: " + name + "</p>"
+    +  "<p> Student Id: " + id + "</p>"
+    +  "<p> Program: " + program + "</p>"
+
+  );
+
+
+
+  console.log("name = " + name);
+  console.log("id = " + id);
+  console.log("prog = " + program);
+
+
+
+
+
+
+</script>
+</body>
+</html>
